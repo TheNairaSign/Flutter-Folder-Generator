@@ -1,0 +1,21 @@
+const dartTemplates = {
+  'models': 'user_model.dart',
+  'views': 'home_view.dart',
+  'controllers': 'app_controller.dart',
+  'viewmodels': 'main_viewmodel.dart',
+  'providers': 'auth_provider.dart',
+  'bloc': 'app_bloc.dart',
+  'repositories': 'data_repository.dart',
+  'services': 'api_service.dart',
+  'utils': 'helpers.dart',
+  'widgets': 'custom_widget.dart',
+  'screens': 'main_screen.dart',
+  'entities': 'user_entity.dart',
+  'usecases': 'get_user_usecase.dart',
+  'datasources': 'user_remote_datasource.dart',
+  'errors': 'failure.dart',
+  'network': 'api_client.dart',
+  'domain': 'domain_model.dart',
+  'data': 'data_model.dart',
+  'presentation': 'ui_component.dart'
+};

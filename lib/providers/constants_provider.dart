@@ -140,18 +140,24 @@ class ConstantsProvider extends ChangeNotifier {
 
   Future<void> generateProject() async {
     debugPrint('Generating project...');
+    final folder =  _foldersController.text.split(",").map((e) => e.trim()).toList();
+    final sss = folder.toString();
+    debugPrint('Selected folders: $folder');
+    debugPrint('Selected architecture: $_selectedArchitecture');
+    debugPrint('Project Name: ${_projectNameController.text}');
     try {
       final response = await http.post(
-      Uri.parse("http://192.168.41.175:3000/generate-project"),
-      headers: {"Content-Type": "application/json"},
-      body: jsonEncode({
+      Uri.parse("https://flutter-folder-generator.onrender.com/generate-project"),
+      // headers: {"Content-Type": "application/json"},
+      body: {
         "projectName": _projectNameController.text,
         "architecture": _selectedArchitecture,
-        "customFolders": _foldersController.text.split(",").map((e) => e.trim()).toList(),
-      }),
+        "customFolders": sss,
+      },
     );
 
     debugPrint('Response status code: ${response.statusCode}');
+    debugPrint('Response status: ${response.body}');
     if (response.statusCode == 200) {
       print("Project generated successfully!");
     } else {
@@ -163,7 +169,7 @@ class ConstantsProvider extends ChangeNotifier {
   }
 
   void getProjects() async {
-    final testResponse = await http.get(Uri.parse("http://192.168.41.175:3000/projects"));
+    final testResponse = await http.get(Uri.parse("https://flutter-folder-generator.onrender.com/projects"));
     print("Test response: ${testResponse.statusCode}");
   }
 }
