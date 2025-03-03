@@ -147,14 +147,14 @@ class ConstantsProvider extends ChangeNotifier {
     debugPrint('Project Name: ${_projectNameController.text}');
     try {
       final response = await http.post(
-      Uri.parse("https://flutter-folder-generator.onrender.com/generate-project"),
-      // headers: {"Content-Type": "application/json"},
-      body: {
-        "projectName": _projectNameController.text,
-        "architecture": _selectedArchitecture,
-        "customFolders": sss,
-      },
-    );
+        Uri.parse("https://flutter-folder-generator.onrender.com/generate-project"),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'projectName': 'MyFlutterProject', // Make sure this is not empty
+          'architecture': 'MVC',            // Optional
+          'customFolders': []               // Optional
+        }),
+      );
 
     debugPrint('Response status code: ${response.statusCode}');
     debugPrint('Response status: ${response.body}');

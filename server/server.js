@@ -4,6 +4,8 @@ const { exec } = require('child_process');
 const fs = require('fs-extra');
 const path = require('path');
 const archiver = require('archiver');
+const { dartTemplates } = require('./constants/templates');
+const { architectureTemplates } = require('./constants/architecture_template');
 
 // Initialize express app
 const app = express();
