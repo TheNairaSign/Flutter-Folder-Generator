@@ -140,11 +140,11 @@ class ConstantsProvider extends ChangeNotifier {
 
   Future<void> generateProject() async {
     debugPrint('Generating project...');
-    final folder =  _foldersController.text.split(",").map((e) => e.trim()).toList();
-    final sss = folder.toString();
-    debugPrint('Selected folders: $folder');
-    debugPrint('Selected architecture: $_selectedArchitecture');
-    debugPrint('Project Name: ${_projectNameController.text}');
+    // final folder =  _foldersController.text.split(",").map((e) => e.trim()).toList();
+    // final sss = folder.toString();
+    // debugPrint('Selected folders: $folder');
+    // debugPrint('Selected architecture: $_selectedArchitecture');
+    // debugPrint('Project Name: ${_projectNameController.text}');
     try {
       final response = await http.post(
         Uri.parse("https://flutter-folder-generator.onrender.com/generate-project"),
